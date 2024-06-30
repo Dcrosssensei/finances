@@ -29,7 +29,12 @@ const Header = ({ back }: headerProp) => {
 
 const Style = StyleSheet.create({
   mainContainer: {
-    flexDirection: "row", alignItems: "center", borderBottomWidth: 1, borderBottomColor: "gray"
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: '#fff',
+    borderBottomWidth: 1, 
+    borderBottomColor: "gray"
+
   },
   backContainer: {
     flex: 1,

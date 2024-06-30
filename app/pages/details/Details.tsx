@@ -1,20 +1,39 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '@/app/routes/navigationTypes';
 import MainLayout from '@/app/layout/MainLayout';
 import { ColorsApp } from '@/app/constants';
 import ButtonPress from '@/app/components/ButtonPress';
 import PropertyContainer from './components/PropertyContainer';
+import { format } from 'date-fns';
+import { DeleteProductPush } from '@/app/api/operations';
+import { RecordContext } from '@/app/context/MainContext';
 
 type Props = StackScreenProps<RootStackParamList, 'Details'>;
 
-const Details: React.FC<Props> = ({ route }) => {
+const Details: React.FC<Props> = ({ route, navigation }) => {
   const { register, index } = route.params;
+  const [openModal, setOpenModal] = useState(false)
+  const { reloadRecords } = useContext(RecordContext);
 
   // TODO: check container with image, skeleton
-  // TODO: create edit and delete process
   
+  const handleDelete = async (id:string)=>{
+    setOpenModal(true)
+    // ModalBottom({open={tr}})
+    // const response = await DeleteProductPush(id);
+    // if (response) {
+    //   reloadRecords();
+    //   navigation.navigate('Home');
+    // }
+  }
+
+  const handleModfy= ()=>{
+    navigation.navigate('Add', {register: register });
+  }
+
+
   return (
     <MainLayout >
       <View style={{ paddingHorizontal: 20, paddingVertical: 10 }}>
@@ -41,11 +60,11 @@ const Details: React.FC<Props> = ({ route }) => {
             </PropertyContainer>
             <PropertyContainer>
               <Text style={style.textTitle}>Fecha liberacion</Text>
-              <Text style={style.textValue}>{register.date_release}</Text>
+              <Text style={style.textValue}>{format(register.date_release, 'yyyy-MM-dd')}</Text>
             </PropertyContainer>
             <PropertyContainer>
               <Text style={style.textTitle}>Fecha revision</Text>
-              <Text style={style.textValue}>{register.date_revision}</Text>
+              <Text style={style.textValue}>{format(register.date_revision, 'yyyy-MM-dd')}</Text>
             </PropertyContainer>
           </View>
         </View>
@@ -53,7 +72,7 @@ const Details: React.FC<Props> = ({ route }) => {
           <ButtonPress
             colorinactive={ColorsApp.softGray}
             onPress={() => {
-              // handleClick()
+              handleModfy()
             }}
           >
             {(press) => (
@@ -66,7 +85,7 @@ const Details: React.FC<Props> = ({ route }) => {
             colorinactive={ColorsApp.red}
             colorPress={ColorsApp.softGray}
             onPress={() => {
-              // handleClick()
+              handleDelete(register.id)
             }}
           >
             {(press) => (

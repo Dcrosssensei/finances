@@ -18,7 +18,7 @@ const ButtonPress = ({children, personalize, colorPress, colorinactive, ...restP
                 <View
                     style={[
                         {
-                            padding: 20,
+                            padding: 15,
                         },
                         pressed
                             ? { backgroundColor: colorPress || ColorsApp.blue }

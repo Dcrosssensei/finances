@@ -1,7 +1,6 @@
 import { View, SafeAreaView, StyleSheet, Text, TextInput } from 'react-native';
 import React, { useContext, useEffect, useState } from 'react'
 import { ColorsApp } from '@/app/constants';
-import Header from '@/app/components/header/Header';
 import ListRender from './components/listComponent/ListRender';
 import { ProductTypes } from '@/app/models';
 import { StackScreenProps } from '@react-navigation/stack';
@@ -41,7 +40,6 @@ const Home: React.FC<Props> = ({ navigation }) => {
 
   return (
     <MainLayout >
-      <Header back={false} />
       <View style={style.mainContainer}>
           <View style={style.inputContainer}>
           <TextInput
@@ -60,7 +58,7 @@ const Home: React.FC<Props> = ({ navigation }) => {
             colorinactive={ColorsApp.yellow}
             colorPress={ColorsApp.darkyellow}
             onPress={() => {
-              // handleClick()
+              navigation.navigate('Add', { });
             }}
           >
             {(press) => (
