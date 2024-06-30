@@ -4,7 +4,6 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { format, addYears } from 'date-fns';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { schemaProduct } from './addProductSchema';
 import { ProductTypes } from '@/app/models';
 import { ColorsApp } from '@/app/constants';
 import ButtonPress from '@/app/components/ButtonPress';
@@ -12,7 +11,7 @@ import { AddProductPush, UpdateProductPush } from '@/app/api/operations';
 import { RecordContext } from '@/app/context/MainContext';
 import { RootStackParamList } from '@/app/routes/navigationTypes';
 import { StackScreenProps } from '@react-navigation/stack';
-import { modifyProductSchema } from './modifyProductSchema';
+import { modifyProductSchema, schemaProduct } from './schema';
 
 type Props = StackScreenProps<RootStackParamList, 'Add'>;
 

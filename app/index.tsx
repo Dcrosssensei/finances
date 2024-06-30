@@ -2,7 +2,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from "./pages/home/Home";
 import Details from './pages/details/Details';
 import { RootStackParamList } from './routes/navigationTypes';
-import Header from './components/header/Header';
+import Header from './components/Header';
 import { RecordProvider } from './context/MainContext';
 import AddProduct from './pages/add/AddProduct';
 

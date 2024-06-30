@@ -1,7 +1,7 @@
 import { ProductTypes, ProductTypesToSend } from "../models";
 import { transformToSend } from "./helpers/transforClass";
 
-// TODO: DOCUMENTATION AND HANDLEERROR
+
 
 export const AddProductPush = async (data:ProductTypes) => {
     try {
@@ -37,7 +37,6 @@ export const UpdateProductPush = async (data:ProductTypes) => {
         }
         return false
     } catch (error) {
-        console.log('error', error)
         return false
     }
   };
