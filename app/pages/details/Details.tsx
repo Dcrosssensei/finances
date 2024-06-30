@@ -1,5 +1,5 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
-import React, { useContext, useRef, useState } from 'react'
+import React, { useContext, useRef } from 'react'
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '@/app/routes/navigationTypes';
 import MainLayout from '@/app/layout/MainLayout';
@@ -15,7 +15,7 @@ import { Ionicons } from '@expo/vector-icons';
 type Props = StackScreenProps<RootStackParamList, 'Details'>;
 
 const Details: React.FC<Props> = ({ route, navigation }) => {
-  const { register, index } = route.params;
+  const { register } = route.params;
   const { reloadRecords } = useContext(RecordContext);
 
   // TODO: check container with image, skeleton

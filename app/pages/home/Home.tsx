@@ -1,4 +1,4 @@
-import { View, SafeAreaView, StyleSheet, Text, TextInput } from 'react-native';
+import { View, StyleSheet, Text, TextInput } from 'react-native';
 import React, { useContext, useEffect, useState } from 'react'
 import { ColorsApp } from '@/app/constants';
 import ListRender from './components/listComponent/ListRender';

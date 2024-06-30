@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet } from 'react-native'
 import React, { ReactNode } from 'react'
 import { ColorsApp } from '../constants'
 
