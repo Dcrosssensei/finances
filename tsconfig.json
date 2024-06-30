@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-,   "app/api/__test__/transforClass.test.js"  ]
+  ]
 }
