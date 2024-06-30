@@ -1,5 +1,5 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '@/app/routes/navigationTypes';
 import MainLayout from '@/app/layout/MainLayout';
@@ -9,24 +9,34 @@ import PropertyContainer from './components/PropertyContainer';
 import { format } from 'date-fns';
 import { DeleteProductPush } from '@/app/api/operations';
 import { RecordContext } from '@/app/context/MainContext';
+import { Modalize } from 'react-native-modalize';
+import { Ionicons } from '@expo/vector-icons';
 
 type Props = StackScreenProps<RootStackParamList, 'Details'>;
 
 const Details: React.FC<Props> = ({ route, navigation }) => {
   const { register, index } = route.params;
-  const [openModal, setOpenModal] = useState(false)
   const { reloadRecords } = useContext(RecordContext);
 
   // TODO: check container with image, skeleton
   
+  const modalizeRef = useRef<Modalize>(null);
+
+  const onClose = () => {
+    console.log('otra vex');
+    
+    modalizeRef.current?.close();
+  };
+  const onOpen = () => {
+    modalizeRef.current?.open();
+  };
+
   const handleDelete = async (id:string)=>{
-    setOpenModal(true)
-    // ModalBottom({open={tr}})
-    // const response = await DeleteProductPush(id);
-    // if (response) {
-    //   reloadRecords();
-    //   navigation.navigate('Home');
-    // }
+    const response = await DeleteProductPush(id);
+    if (response) {
+      reloadRecords();
+      navigation.navigate('Home');
+    }
   }
 
   const handleModfy= ()=>{
@@ -85,7 +95,7 @@ const Details: React.FC<Props> = ({ route, navigation }) => {
             colorinactive={ColorsApp.red}
             colorPress={ColorsApp.softGray}
             onPress={() => {
-              handleDelete(register.id)
+              onOpen()
             }}
           >
             {(press) => (
@@ -97,7 +107,45 @@ const Details: React.FC<Props> = ({ route, navigation }) => {
         </View>
       </View>
 
-
+      <Modalize 
+      adjustToContentHeight={true}
+      onOverlayPress={onClose}
+      ref={modalizeRef}>
+        <View style={{height: 350, padding: 30, justifyContent: 'space-between', position: 'relative'}}>
+          <Ionicons size={20} color={ColorsApp.gray} name='close' style={{position: 'absolute', right: 20, top: 20 }} onPress={()=>{ onClose() }} />
+          <View style={{flex: 2, alignContent: 'center', justifyContent: 'center'}}>
+            <Text style={style.textModal}>Estas seguro de Eliminar el producto {register.name} </Text>
+          </View>
+          <View style={{rowGap:10, flex: 1}}>
+          <ButtonPress
+            colorinactive={ColorsApp.yellow}
+            colorPress={ColorsApp.darkyellow}
+            onPress={() => {
+              handleDelete(register.id)
+            }}
+          >
+            {(press) => (
+              <View style={{alignItems: 'center'}} >
+                <Text style={[{color: press ? 'white' :ColorsApp.blue}, style.textButton]} >Confirmar</Text>
+              </View>
+            )}
+          </ButtonPress>
+          <ButtonPress
+            colorinactive={ColorsApp.softGray}
+            colorPress={ColorsApp.gray}
+            onPress={() => {
+              onClose()
+            }}
+          >
+            {(press) => (
+              <View style={{alignItems: 'center'}} >
+                <Text style={[{color: press ? 'white' : 'black' }, style.textButton]} >Cancelar</Text>
+              </View>
+            )}
+          </ButtonPress>
+        </View>
+        </View>
+      </Modalize>
 
     </MainLayout>
   )
@@ -110,6 +158,12 @@ const style = StyleSheet.create({
     margin: 'auto'
   },
 
+  textModal: {
+    fontWeight: '600',
+    fontSize: 24,
+    textAlign: 'center',
+    color: ColorsApp.gray,
+  },
   textTitle: {
     fontWeight: '600',
     flex: 3,
