@@ -1,7 +1,7 @@
 
 
+import { transformToSend } from '@/app/api';
 import { format } from 'date-fns';
-import { transformToSend } from '../helpers/transforClass';
 
 jest.mock('date-fns', () => ({
   format: jest.fn()
