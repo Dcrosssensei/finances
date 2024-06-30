@@ -79,16 +79,29 @@ const AddProduct: React.FC<Props> = ({ route, navigation }) => {
 
 
   const handleReset = () => {
-    reset({
-      id: '',
-      name: '',
-      description: '',
-      logo: '',
-      date_release: undefined,
-      date_revision: undefined,
-    });
-    setReleaseDate(undefined);
-    setRevisionDate(undefined);
+    if (toUpdate && register) {
+      reset({
+        id: register.id,
+        name: '',
+        description: '',
+        logo: '',
+        date_release: undefined,
+        date_revision: undefined,
+      });
+      setReleaseDate(undefined);
+      setRevisionDate(undefined);
+    } else {
+      reset({
+        id: '',
+        name: '',
+        description: '',
+        logo: '',
+        date_release: undefined,
+        date_revision: undefined,
+      });
+      setReleaseDate(undefined);
+      setRevisionDate(undefined);
+    }
   };
 
   return (
@@ -101,6 +114,7 @@ const AddProduct: React.FC<Props> = ({ route, navigation }) => {
           name='id'
           label='ID'
           errors={errors.id}
+          editable={!toUpdate}
         />
         <CustomInput
           control={control}
