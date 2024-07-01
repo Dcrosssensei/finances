@@ -20,9 +20,6 @@ const CustomInput: React.FC<CustomInputProps> = ({
   errors,
   ...inputProps
 }) => {
-  try {
-    
-
   return (
     <View style={style.inputContainer}>
       <Text style={style.label}>{label}</Text>
@@ -42,9 +39,6 @@ const CustomInput: React.FC<CustomInputProps> = ({
       {errors && <Text style={style.error}>{errors.message}</Text>}
     </View>
   );
-} catch (error) {
-    console.log('error', error)
-}
 };
 
 const style = StyleSheet.create({

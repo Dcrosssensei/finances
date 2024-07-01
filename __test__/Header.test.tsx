@@ -24,8 +24,6 @@ describe('Header With Back false', () => {
         tree = renderer.create(<Header back={false} />).toJSON();
     })
     it('should render the correct text', () => {
-        // console.log('tree', JSON.stringify(tree, null, 2))
-        
         const title = tree.children[0].children[1];
         expect(title.children).toContain('BANCO');
       });

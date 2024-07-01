@@ -23,8 +23,6 @@ const Details: React.FC<Props> = ({ route, navigation }) => {
   const modalizeRef = useRef<Modalize>(null);
 
   const onClose = () => {
-    console.log('otra vex');
-    
     modalizeRef.current?.close();
   };
   const onOpen = () => {

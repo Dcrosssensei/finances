@@ -37,7 +37,6 @@ export const RecordProvider = ({ children }: { children: React.ReactNode }) => {
         records: [],
         loading: false
       }));
-      console.log('Error fetching records:', error);
     }
   };
 
