@@ -1,0 +1,224 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RenderItemList renders correctly 1`] = `
+<RCTScrollView
+  ListEmptyComponent={<ListEmptyComponent />}
+  data={
+    [
+      {
+        "date_release": 2024-01-29T00:00:00.000Z,
+        "date_revision": 2024-06-29T00:00:00.000Z,
+        "description": "Producto A ofrece una solución integral con características avanzadas que mejoran la eficiencia y la productividad.",
+        "id": "001",
+        "logo": "https://handsonbanking.org/wp-content/uploads/2021/02/debitcard_front_blue.png",
+        "name": "Producto Innovador A",
+      },
+      {
+        "date_release": 2024-01-29T00:00:00.000Z,
+        "date_revision": 2024-06-29T00:00:00.000Z,
+        "description": "Producto B es conocido por su durabilidad y rendimiento superior en diversas condiciones operativas.",
+        "id": "product-id-002",
+        "logo": "https://handsonbanking.org/wp-content/uploads/2021/02/debitcard_front_blue.png",
+        "name": "Producto Revolucionario B",
+      },
+    ]
+  }
+  getItem={[Function]}
+  getItemCount={[Function]}
+  keyExtractor={[Function]}
+  onContentSizeChange={[Function]}
+  onLayout={[Function]}
+  onMomentumScrollBegin={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={0.0001}
+  stickyHeaderIndices={[]}
+  viewabilityConfigCallbackPairs={[]}
+>
+  <View>
+    <View
+      onFocusCapture={[Function]}
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "borderColor": "lightgray",
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "paddingHorizontal": 10,
+            "paddingVertical": 14,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "flex": 9,
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "fontWeight": "700",
+              }
+            }
+          >
+            Producto Innovador A
+          </Text>
+          <Text
+            style={
+              {
+                "color": "#636262",
+                "fontWeight": "500",
+              }
+            }
+          >
+            ID: 
+            001
+          </Text>
+        </View>
+        <Text />
+      </View>
+    </View>
+    <View
+      onFocusCapture={[Function]}
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        accessibilityValue={
+          {
+            "max": undefined,
+            "min": undefined,
+            "now": undefined,
+            "text": undefined,
+          }
+        }
+        accessible={true}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          {
+            "alignItems": "center",
+            "borderColor": "lightgray",
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "paddingHorizontal": 10,
+            "paddingVertical": 14,
+          }
+        }
+      >
+        <View
+          style={
+            {
+              "flex": 9,
+            }
+          }
+        >
+          <Text
+            style={
+              {
+                "fontWeight": "700",
+              }
+            }
+          >
+            Producto Revolucionario B
+          </Text>
+          <Text
+            style={
+              {
+                "color": "#636262",
+                "fontWeight": "500",
+              }
+            }
+          >
+            ID: 
+            product-id-002
+          </Text>
+        </View>
+        <Text />
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`RenderItemList without data renders correctly 1`] = `
+<RCTScrollView
+  ListEmptyComponent={<ListEmptyComponent />}
+  data={[]}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  keyExtractor={[Function]}
+  onContentSizeChange={[Function]}
+  onLayout={[Function]}
+  onMomentumScrollBegin={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={0.0001}
+  stickyHeaderIndices={[]}
+  viewabilityConfigCallbackPairs={[]}
+>
+  <View>
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "backgroundColor": "white",
+            "height": 60,
+            "justifyContent": "center",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          {
+            "fontSize": 20,
+          }
+        }
+      >
+        No se encontraron Resultados
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;

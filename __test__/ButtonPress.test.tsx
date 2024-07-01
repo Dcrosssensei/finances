@@ -3,6 +3,7 @@ import { ColorsApp } from "@/app/constants";
 import React from "react";
 import { Text, View } from "react-native";
 import renderer from "react-test-renderer";
+import { getNestedChild } from "./helpers/nestedChildAux";
 
 
 describe('ButtonPress simple form', () => {
@@ -23,10 +24,8 @@ describe('ButtonPress simple form', () => {
       });
 
     it('ButtonPress render text', () => {
-        const textoSearch ="Soy un boton"
-        const textInside = JSON.stringify(tree)
-        const position = textInside.indexOf(textoSearch)        
-        expect(position).toBeGreaterThan(0);
+      const textRendered = getNestedChild(tree,4);  
+      expect(textRendered).toEqual("Soy un boton");
       });
 
     it('ButtonPress inactive color default is lightgray', () => {
@@ -57,10 +56,8 @@ describe('ButtonPress change color form', () => {
       });
 
     it('ButtonPress render text', () => {
-        const textoSearch ="Soy un boton"
-        const textInside = JSON.stringify(tree)
-        const position = textInside.indexOf(textoSearch)        
-        expect(position).toBeGreaterThan(0);
+        const textRendered = getNestedChild(tree,4);  
+        expect(textRendered).toEqual("Soy un boton");
       });
 
     it('ButtonPress inactive color change for prop', () => {
