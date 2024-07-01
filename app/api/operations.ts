@@ -5,14 +5,14 @@ import { transformToSend } from "./helpers/transforClass";
 
 export const AddProductPush = async (data:ProductTypes) => {
     try {
-        const productToSend: ProductTypesToSend = transformToSend(data);
+      const productToSend: ProductTypesToSend = transformToSend(data);
       const response = await fetch(`http://10.0.2.2:3002/bp/products`, {
         method: "POST",
         body: JSON.stringify({ ...productToSend }),
         headers: {
             'Content-Type': 'application/json'
           },
-        });
+        })
         if (response.status === 200) {
             return true
         }

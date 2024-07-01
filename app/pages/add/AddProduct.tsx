@@ -13,6 +13,7 @@ import { RootStackParamList } from '@/app/routes/navigationTypes';
 import { StackScreenProps } from '@react-navigation/stack';
 import { modifyProductSchema, schemaProduct } from './schema';
 import CustomInput from './components/CustomInput';
+import Toast from '@/app/components/ToasCustom';
 
 type Props = StackScreenProps<RootStackParamList, 'Add'>;
 
@@ -31,6 +32,7 @@ const AddProduct: React.FC<Props> = ({ route, navigation }) => {
   const [revisionDate, setRevisionDate] = useState<Date | undefined>(undefined);
   const [isReleaseDatePickerVisible, setReleaseDatePickerVisible] = useState(false);
   const [isRevisionDatePickerVisible, setRevisionDatePickerVisible] = useState(false);
+  const [toast, setToast]= useState(false)
 
   const showReleaseDatePicker = () => {
     setReleaseDatePickerVisible(true);
@@ -48,11 +50,15 @@ const AddProduct: React.FC<Props> = ({ route, navigation }) => {
       const response = await UpdateProductPush(data)
       if (response) {
         handleResponse()
+      } else {
+        setToast(true)
       }
     } else {
       const response = await AddProductPush(data)
       if (response) {
         handleResponse()
+      }else {
+        setToast(true)
       }
     }
   };
@@ -106,6 +112,7 @@ const AddProduct: React.FC<Props> = ({ route, navigation }) => {
 
   return (
     <ScrollView style={style.mainContainer}>
+      <Toast message={'Se presento un error intentelo nuevamente.'} open={toast} setOpen={setToast} />
       <View style={style.renderContainer}>
         <Text style={style.textTitle}>Formulario de Registro</Text>
 
