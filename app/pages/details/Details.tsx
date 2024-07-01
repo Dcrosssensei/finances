@@ -1,5 +1,5 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '@/app/routes/navigationTypes';
 import MainLayout from '@/app/layout/MainLayout';
@@ -11,14 +11,14 @@ import { DeleteProductPush } from '@/app/api/operations';
 import { RecordContext } from '@/app/context/MainContext';
 import { Modalize } from 'react-native-modalize';
 import { Ionicons } from '@expo/vector-icons';
+import SkeletonImage from '@/app/components/SkeletonImage';
 
 type Props = StackScreenProps<RootStackParamList, 'Details'>;
 
 const Details: React.FC<Props> = ({ route, navigation }) => {
   const { register } = route.params;
   const { reloadRecords } = useContext(RecordContext);
-
-  // TODO: check container with image, skeleton
+  const [imageLoad, setImageLoad] = useState(false);
   
   const modalizeRef = useRef<Modalize>(null);
 
@@ -61,10 +61,17 @@ const Details: React.FC<Props> = ({ route, navigation }) => {
             </PropertyContainer>
             <PropertyContainer>
               <Text style={style.textTitle}>Logo</Text>
-              <Image
-                style={style.image}
-                source={{ uri: register.logo }}
-              />
+                <Image
+                  style={[style.image, imageLoad ? null : {display: 'none'}]}
+                  source={{ uri: register.logo }}
+                  onLoad={(e)=>{
+                    const { width }= e.nativeEvent.source
+                    if (width > 1) {
+                      setImageLoad(true)
+                    }
+                  }}
+                />
+                <SkeletonImage style={[style.image,imageLoad ? {display: 'none'} : {display: 'flex'} ]} />
             </PropertyContainer>
             <PropertyContainer>
               <Text style={style.textTitle}>Fecha liberacion</Text>
