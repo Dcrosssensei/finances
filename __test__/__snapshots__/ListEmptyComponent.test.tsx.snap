@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListEmptyComponent with message renders correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "height": 60,
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    numberOfLines={1}
+    style={
+      {
+        "fontSize": 20,
+      }
+    }
+  >
+    lamentamos los inconvenientes
+  </Text>
+</View>
+`;
+
+exports[`ListEmptyComponent without message renders correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "backgroundColor": "white",
+        "height": 60,
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    numberOfLines={1}
+    style={
+      {
+        "fontSize": 20,
+      }
+    }
+  >
+    No se encontraron Resultados
+  </Text>
+</View>
+`;
