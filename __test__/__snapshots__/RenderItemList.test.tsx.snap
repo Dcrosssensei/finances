@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RenderItemList renders correctly 1`] = `
+<View
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "borderColor": "lightgray",
+      "borderWidth": 1,
+      "flexDirection": "row",
+      "paddingHorizontal": 10,
+      "paddingVertical": 14,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 9,
+      }
+    }
+  >
+    <Text
+      style={
+        {
+          "fontWeight": "700",
+        }
+      }
+    >
+      Producto Innovador A
+    </Text>
+    <Text
+      style={
+        {
+          "color": "#636262",
+          "fontWeight": "500",
+        }
+      }
+    >
+      ID: 
+      001
+    </Text>
+  </View>
+  <Text />
+</View>
+`;
